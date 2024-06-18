@@ -4,6 +4,8 @@ import com.sosapp.sosjerka.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserDetailsService {
 
@@ -16,6 +18,9 @@ public class UserDetailsService {
         return userDetails;
     }
 
+    public Optional<UserDetails> findUserById(Long id){
+        return userDetailsRepository.findById(id);
+    }
 
 
 
