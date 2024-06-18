@@ -6,7 +6,7 @@ import lombok.Data;
 @Embeddable
 @Data
 public class Patron {
-    String name;
-    String phoneNumber;
+    private String name;
+    private String phoneNumber;
 
 }

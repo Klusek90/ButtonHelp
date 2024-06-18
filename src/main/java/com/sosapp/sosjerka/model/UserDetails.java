@@ -32,5 +32,10 @@ public class UserDetails {
     @CollectionTable(name = "user_patrons", joinColumns = @JoinColumn(name = "user_id"))
     private List<Patron> patronList;
 
+    private String bloodType;
+
+    @ElementCollection
+    @CollectionTable(name = "medical_history", joinColumns = @JoinColumn(name = "user_id"))
+    private List<MedicalHistory> history;
 
 }
