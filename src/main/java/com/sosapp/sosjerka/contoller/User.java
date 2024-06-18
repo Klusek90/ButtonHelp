@@ -11,7 +11,7 @@ public class User {
     public UserDetails mainUserInfo(){
         UserDetails user = new UserDetails();
         user.setAge(15);
-        user.setName("klusko");
+        user.setFirstName("klusko");
         user.setLocation("kluczbork");
         return user;
     }
