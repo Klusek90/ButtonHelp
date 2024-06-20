@@ -5,14 +5,15 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Patron {
+public class Postcode {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "contact_id")
-    private Contact contact;
+    private String county;
+    private String postcode;
+    private String city;
+
 
 }

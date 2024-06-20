@@ -5,14 +5,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Patron {
+public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "contact_id")
-    private Contact contact;
+    private String firstname;
+    private String surname;
+    private String phoneNumber;
 
 }

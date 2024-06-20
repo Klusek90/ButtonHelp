@@ -15,10 +15,7 @@ public class UserDetails {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String firstName;
-    private String lastName;
     private String email;
-    private String location;
     private int age;
 
     @OneToOne
@@ -28,14 +25,15 @@ public class UserDetails {
     @Enumerated(EnumType.STRING)
     private UserType type;
 
-    @ElementCollection
-    @CollectionTable(name = "user_patrons", joinColumns = @JoinColumn(name = "user_id"))
-    private List<Patron> patronList;
+//    @ElementCollection
+//    @CollectionTable(name = "user_patrons", joinColumns = @JoinColumn(name = "user_id"))
+//    private List<Patron> patronList;
 
+    @Enumerated(EnumType.STRING)
     private String bloodType;
 
-    @ElementCollection
-    @CollectionTable(name = "medical_history", joinColumns = @JoinColumn(name = "user_id"))
-    private List<MedicalHistory> history;
+//    @ElementCollection
+//    @CollectionTable(name = "medical_history", joinColumns = @JoinColumn(name = "user_id"))
+//    private List<MedicalHistory> history;
 
 }
