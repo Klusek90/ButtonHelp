@@ -30,7 +30,7 @@ public class UserDetails {
 //    private List<Patron> patronList;
 
     @Enumerated(EnumType.STRING)
-    private String bloodType;
+    private BloodType bloodType;
 
 //    @ElementCollection
 //    @CollectionTable(name = "medical_history", joinColumns = @JoinColumn(name = "user_id"))
