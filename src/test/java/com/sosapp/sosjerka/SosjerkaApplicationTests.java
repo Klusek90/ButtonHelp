@@ -31,53 +31,36 @@ class SosjerkaApplicationTests {
     @Test
     public void testSaveUserDetails(){
 
+        Contact contact = new Contact();
+        contact.setId(1L);
+        contact.setFirstname("Name");
+        contact.setSurname("Surname");
+        contact.setPhoneNumber("123 123 123");
+
         UserDetails user = new UserDetails();
-        user.setFirstName("imie");
-        user.setLastName("nazwisko");
+        user.setContact(contact);
         user.setAge(30);
-        user.setLocation("wspolrzedne?");
         user.setEmail("email");
+
+        Postcode postcode = new Postcode();
+        postcode.setId(2L);
+        postcode.setCity("City");
+        postcode.setPostcode("Postcode");
+        postcode.setCounty("County");
 
         Address address =  new Address();
         address.setAddress1("address1");
         address.setAddress2("address2");
         address.setAddress3("address3");
-        address.setCity("miasto");
-        address.setPostcode("kodPocztowy");
+        address.setPostcode(postcode);
 
-        user.setType(UserType.valueOf("USER"));
-        user.setBloodType("Rh+");
+        user.setType(UserType.USER);
+        user.setBloodType(BloodType.A_NEGATIVE);
 
 
         Patron patron = new Patron();
-        patron.setName("PatronName");
-        patron.setPhoneNumber("0700880700");
-
-        Patron patron2 =  new Patron();
-        patron2.setName("OtherPatron");
-        patron2.setPhoneNumber("18731234568");
-
-        List<Patron> patronlist = new ArrayList<>();
-        patronlist.add(patron);
-        patronlist.add(patron2);
-        user.setPatronList(patronlist);
-
-        List<String> medicine = List.of("Medicine1", "Medicine2", "Medicine3");
-        MedicalHistory history = new MedicalHistory();
-        history.setIllness("Illnes 1");
-        history.setCurrent(true);
-        history.setMedicines(medicine);
-
-        MedicalHistory history2 = new MedicalHistory();
-        history2.setIllness("Illnes 2");
-        history2.setCurrent(false);
-        history2.setMedicines(medicine);
-
-        List<MedicalHistory> medicalHistories= new ArrayList<>();
-
-        medicalHistories.add(history);
-        medicalHistories.add(history2);
-        user.setHistory(medicalHistories);
+        patron.setContact(contact);
+        patron.setId(3L);
 
         when(userDetailsRepository.save(user)).thenReturn(user);
 
@@ -86,8 +69,8 @@ class SosjerkaApplicationTests {
 
         // Then
         assertThat(savedUserDetails).isNotNull();
-        assertThat(savedUserDetails.getFirstName()).isEqualTo(user.getFirstName());
-        assertThat(savedUserDetails.getEmail()).isEqualTo(user.getEmail());
-        assertThat(savedUserDetails.getHistory().get(0).getMedicines().get(1)).isEqualTo("Medicine2");
+        assertThat(savedUserDetails.getContact().getFirstname()).isEqualTo("Name");
+        assertThat(savedUserDetails.getEmail()).isEqualTo("email");
+        assertThat(savedUserDetails.getBloodType()).isEqualTo(BloodType.A_NEGATIVE);
     }
 }

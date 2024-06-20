@@ -19,6 +19,10 @@ public class UserDetails {
     private int age;
 
     @OneToOne
+    @JoinColumn(name = "contact_id")
+    private Contact contact;
+
+    @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
