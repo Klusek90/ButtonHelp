@@ -1,23 +1,21 @@
 package com.sosapp.sosjerka.contoller;
 
 import com.sosapp.sosjerka.model.*;
-import com.sosapp.sosjerka.service.UserDetailsService;
+import com.sosapp.sosjerka.Repository.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class UserEndpoints {
+public class UserControl {
 
     @Autowired
     private UserDetailsService userDetailsService;
 
-    public UserEndpoints(UserDetailsService userDetailsService) {
+    public UserControl(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -41,4 +39,8 @@ public class UserEndpoints {
         UserDetails savedUser = userDetailsService.saveDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
+
+
+
+
 }

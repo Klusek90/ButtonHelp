@@ -1,4 +1,4 @@
-package com.sosapp.sosjerka.service;
+package com.sosapp.sosjerka.Repository;
 
 import com.sosapp.sosjerka.model.Contact;
 import com.sosapp.sosjerka.model.Medicine;
