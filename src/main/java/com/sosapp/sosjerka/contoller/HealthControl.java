@@ -1,6 +1,6 @@
 package com.sosapp.sosjerka.contoller;
 
-import com.sosapp.sosjerka.Repository.UserDetailsService;
+import com.sosapp.sosjerka.service.UserDetailsService;
 import com.sosapp.sosjerka.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public class HealthControl {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
-    @PostMapping("updateMedicine/{id]")
+    @PostMapping("updateMedicine/{id}")
     public ResponseEntity<UserDetails> updateMedicine(@RequestBody UserDetails user, @PathVariable Long id) {
         UserDetails savedUser = userDetailsService.saveDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
@@ -48,7 +48,7 @@ public class HealthControl {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
-    @PostMapping("updateAlergen/{id]")
+    @PostMapping("updateAlergen/{id}")
     public ResponseEntity<UserDetails> updateAlergen(@RequestBody UserDetails user, @PathVariable Long id) {
         UserDetails savedUser = userDetailsService.saveDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);

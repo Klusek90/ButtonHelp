@@ -1,6 +1,6 @@
 package com.sosapp.sosjerka.contoller;
 
-import com.sosapp.sosjerka.Repository.UserDetailsService;
+import com.sosapp.sosjerka.service.UserDetailsService;
 import com.sosapp.sosjerka.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,7 @@ package com.sosapp.sosjerka;
 
 import com.sosapp.sosjerka.model.*;
 import com.sosapp.sosjerka.Repository.UserDetailsRepository;
-import com.sosapp.sosjerka.Repository.UserDetailsService;
+import com.sosapp.sosjerka.service.UserDetailsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -49,14 +49,10 @@ class SosjerkaApplicationTests {
         address.setAddress2("address2");
         address.setAddress3("address3");
         address.setPostcode(postcode);
+        user.setAddress(address);
 
         user.setType(UserType.USER);
         user.setBloodType(BloodType.A_NEGATIVE);
-
-
-        Patron patron = new Patron();
-        patron.setContact(contact);
-        patron.setId(3L);
 
         when(userDetailsRepository.save(user)).thenReturn(user);
 
@@ -67,6 +63,11 @@ class SosjerkaApplicationTests {
         assertThat(savedUserDetails).isNotNull();
         assertThat(savedUserDetails.getContact().getFirstname()).isEqualTo("Name");
         assertThat(savedUserDetails.getEmail()).isEqualTo("email");
-        assertThat(savedUserDetails.getBloodType()).isEqualTo(BloodType.A_NEGATIVE);
+        assertThat(savedUserDetails.getBloodType().toString()).isEqualTo("A-");
+
+    }
+    @Test
+    public void testPatronList(){
+
     }
 }

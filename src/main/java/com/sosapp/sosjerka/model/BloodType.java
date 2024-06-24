@@ -1,5 +1,8 @@
 package com.sosapp.sosjerka.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum BloodType {
 
     A_POSITIVE("A+"),
@@ -17,7 +20,8 @@ public enum BloodType {
         this.bloodtype = bloodtype;
     }
 
-    public String getDisplayName() {
+    @JsonValue
+    public String getBloodtype(){
         return bloodtype;
     }
 

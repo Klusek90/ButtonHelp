@@ -1,12 +1,13 @@
 package com.sosapp.sosjerka.contoller;
 
 import com.sosapp.sosjerka.model.*;
-import com.sosapp.sosjerka.Repository.UserDetailsService;
+import com.sosapp.sosjerka.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,7 +31,6 @@ public class UserControl {
         } else {
 
             return ResponseEntity.notFound().build();
-//            return ResponseEntity.ok(user);
         }
     }
 
@@ -41,6 +41,11 @@ public class UserControl {
     }
 
 
+    @GetMapping("/all")
+    public List<UserDetails> getall(){
+       List<UserDetails> all = userDetailsService.findAll();
+        return all;
+    }
 
 
 }

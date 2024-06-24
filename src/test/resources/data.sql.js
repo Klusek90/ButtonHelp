@@ -1,0 +1,1 @@
+INSERT INTO postcode (id, city,county,postcode) values (1, 'kluczbork','opolskie','46-200')

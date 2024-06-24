@@ -1,0 +1,25 @@
+{
+  "id": 1,
+  "email": "okorysia@p2.pl",
+  "age": 30,
+  "contact": {
+    "id": 2,
+    "firstname": "klusko",
+    "surname": "costam",
+    "phoneNumber": "0751345"
+  },
+  "address": {
+    "id": 5,
+    "address1": "costam",
+    "address2": "costam",
+    "address3": "address3",
+    "postcode": {
+      "id": 2,
+      "county": "opolskie",
+      "postcode": "cv21",
+      "city": "kluczbork"
+    }
+  },
+  "type": "USER",
+  "bloodType": "A+"
+}
