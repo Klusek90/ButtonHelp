@@ -11,11 +11,16 @@ public class Patron {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserDetails user;
+
     private String firstname;
     private String surname;
     private String nickname;
     private String mobile;
     private String home;
     private String office;
+    private int listPosition;
 
 }

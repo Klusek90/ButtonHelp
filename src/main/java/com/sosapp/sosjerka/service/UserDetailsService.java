@@ -21,12 +21,9 @@ public class UserDetailsService {
         return userDetailsRepository.save(userDetails);
     }
 
-
-
     public Optional<UserDetails> findUserById(Long id){
         return userDetailsRepository.findById(id);
     }
-
 
     public List<UserDetails> findAll(){
         return userDetailsRepository.findAll();

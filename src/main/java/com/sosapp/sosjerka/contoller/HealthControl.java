@@ -12,9 +12,6 @@ import java.util.Optional;
 public class HealthControl {
 
 
-    @Autowired
-    private UserDetailsService userDetailsService;
-
 //    @PostMapping("/addMedicine")
 //    public ResponseEntity<UserDetails> addMedicine(@RequestBody UserDetails user) {
 //        UserDetails savedUser = userDetailsService.saveDetails(user);
