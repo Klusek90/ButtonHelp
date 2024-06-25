@@ -18,4 +18,8 @@ public class MedHistory {
 
     @Temporal(TemporalType.DATE)
     private Date fromDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private MedDetails medDetails;
 }

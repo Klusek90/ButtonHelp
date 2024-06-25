@@ -14,14 +14,17 @@ public class Medicine {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private MedDetails medDetails;
 
     private String medicineName;
+    private int dose;
 
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private Date startToUse;
 
-    private LocalTime times;
-
-
+    @ElementCollection
+    private List<LocalTime> scheduleTime;
 
 }

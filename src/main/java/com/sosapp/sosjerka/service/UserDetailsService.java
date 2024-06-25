@@ -34,6 +34,7 @@ public class UserDetailsService {
         Address userAddress = userDetails.getAddress();
 
         if(userAddress.getPostcode() != null){
+
             Optional<Postcode> findPostcode = postcodeRepository.findByPostcode(userAddress.getPostcode().getPostcode());
 
             if(findPostcode.isPresent()){

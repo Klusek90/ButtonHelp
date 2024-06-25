@@ -11,8 +11,11 @@ public class Patron {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "contact_id")
-    private Contact contact;
+    private String firstname;
+    private String surname;
+    private String nickname;
+    private String mobile;
+    private String home;
+    private String office;
 
 }

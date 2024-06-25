@@ -10,12 +10,11 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
-
+    private Long user;
     private String address1;
     private String address2;
     private String address3;
-
-    @OneToOne
-    @JoinColumn(name = "postcode_id")
-    private Postcode postcode;
+    private String city;
+    private String county;
+    private String postcode;
 }
