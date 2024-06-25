@@ -29,12 +29,7 @@ public class UserControl {
             UserDetails userDetails = userDetailsOptional.get();
             return ResponseEntity.ok(userDetails);
         } else {
-
-//            return ResponseEntity.notFound().build();
-            UserDetails userDetails = new UserDetails();
-
-
-            return ResponseEntity.ok(userDetails);
+            return ResponseEntity.notFound().build();
         }
     }
 

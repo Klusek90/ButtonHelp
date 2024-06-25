@@ -1,8 +1,6 @@
 package com.sosapp.sosjerka.service;
 
-import com.sosapp.sosjerka.Repository.AddressRepository;
 import com.sosapp.sosjerka.Repository.UserDetailsRepository;
-import com.sosapp.sosjerka.model.Address;
 import com.sosapp.sosjerka.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,21 +14,16 @@ public class UserDetailsService {
 
     @Autowired
     private UserDetailsRepository userDetailsRepository;
-    @Autowired
-    private AddressRepository addressRepository;
 
 
     @Transactional
     public UserDetails saveUserDetails(UserDetails userDetails){
-
-
         return userDetailsRepository.save(userDetails);
     }
 
 
 
     public Optional<UserDetails> findUserById(Long id){
-
         return userDetailsRepository.findById(id);
     }
 
