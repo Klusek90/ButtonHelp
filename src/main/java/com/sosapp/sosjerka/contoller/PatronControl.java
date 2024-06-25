@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PatronControl {
-
-
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    @PostMapping("/addPatron")
-    public ResponseEntity<UserDetails> addPatron(@RequestBody UserDetails user) {
-        UserDetails savedUser = userDetailsService.saveDetails(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-    }
-
-    @PostMapping("/updatePatrons")
-    public ResponseEntity<UserDetails> updatePatrons(@RequestBody UserDetails user) {
-        UserDetails savedUser = userDetailsService.saveDetails(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-    }
+//
+//
+//    @Autowired
+//    private UserDetailsService userDetailsService;
+//
+//    @PostMapping("/addPatron")
+//    public ResponseEntity<UserDetails> addPatron(@RequestBody UserDetails user) {
+//        UserDetails savedUser = userDetailsService.saveDetails(user);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+//    }
+//
+//    @PostMapping("/updatePatrons")
+//    public ResponseEntity<UserDetails> updatePatrons(@RequestBody UserDetails user) {
+//        UserDetails savedUser = userDetailsService.saveDetails(user);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+//    }
 
 }

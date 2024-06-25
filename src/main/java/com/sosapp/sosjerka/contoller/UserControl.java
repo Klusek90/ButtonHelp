@@ -30,13 +30,17 @@ public class UserControl {
             return ResponseEntity.ok(userDetails);
         } else {
 
-            return ResponseEntity.notFound().build();
+//            return ResponseEntity.notFound().build();
+            UserDetails userDetails = new UserDetails();
+
+
+            return ResponseEntity.ok(userDetails);
         }
     }
 
     @PostMapping("/saveUserDetails")
     public ResponseEntity<UserDetails> createUser(@RequestBody UserDetails user) {
-        UserDetails savedUser = userDetailsService.saveDetails(user);
+        UserDetails savedUser = userDetailsService.saveUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
