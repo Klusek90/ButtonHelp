@@ -24,4 +24,6 @@ public class UserDetails {
     @Enumerated(EnumType.STRING)
     private UserType type;
 
+    //remove the inactive users
+    private Boolean active;
 }
