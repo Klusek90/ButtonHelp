@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface PatronRepository extends JpaRepository<Patron, Long> {
 
-    List<Patron> findByUserOrderByListPosition(UserDetails user);
+    List<Patron> findByUserIdOrderByListPosition(Long userid);
 
 }

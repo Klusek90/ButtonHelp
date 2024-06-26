@@ -7,6 +7,7 @@ import com.sosapp.sosjerka.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,11 +21,11 @@ public class PatronService {
     private UserDetailsRepository userDetailsRepository;
 
     public Patron updatePatronList(List<Patron> patrons, Long userId){
-        Optional<UserDetails> user = userDetailsRepository.findById(userId);
 
-        List<Patron> current = patronRepository.findByUserOrderByListPosition(user.get());
+        List<Patron> current = new ArrayList<>();
+            current = patronRepository.findByUserIdOrderByListPosition(userId);
 
-        if(current.size()>0){
+        if(!(current.isEmpty()) ||  current.size()>0){
             //remove items from database if new list is shorter
             if(patrons.size()< current.size()){
                 int difference =current.size() -patrons.size();
@@ -42,11 +43,11 @@ public class PatronService {
         }
 
         patronRepository.saveAll(patrons);
-        return current.get(0);
+        return patrons.get(0);
     }
 
-    public List<Patron> allUserPatrons(Long id){
-        Optional<UserDetails> user = userDetailsRepository.findById(id);
-        return patronRepository.findByUserOrderByListPosition(user.get());
+    public ArrayList<Patron> allUserPatrons(Long userId){
+        ArrayList<Patron> userlist=  (ArrayList<Patron>) patronRepository.findByUserIdOrderByListPosition(userId);
+        return userlist;
     }
 }

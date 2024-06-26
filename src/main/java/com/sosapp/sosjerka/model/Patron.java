@@ -2,6 +2,7 @@ package com.sosapp.sosjerka.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NonNull;
 
 @Entity
 @Data
@@ -11,16 +12,18 @@ public class Patron {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserDetails user;
-
+    private Long userId;
     private String firstname;
     private String surname;
     private String nickname;
     private String mobile;
     private String home;
     private String office;
+
+    @NonNull
     private int listPosition;
 
+    public Patron() {
+
+    }
 }
