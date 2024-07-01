@@ -29,14 +29,13 @@ public class UserControl {
             UserDetails userDetails = userDetailsOptional.get();
             return ResponseEntity.ok(userDetails);
         } else {
-
             return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/saveUserDetails")
     public ResponseEntity<UserDetails> createUser(@RequestBody UserDetails user) {
-        UserDetails savedUser = userDetailsService.saveDetails(user);
+        UserDetails savedUser = userDetailsService.saveUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
