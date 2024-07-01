@@ -1,6 +1,7 @@
 package com.sosapp.sosjerka.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
 
@@ -18,7 +19,9 @@ public class UserDetails {
     private String lastname;
     private String email;
     private int age;
+    @Pattern(regexp = "[0-9]+", message="Only numbers")
     private String mobile;
+    @Pattern(regexp = "[0-9]+", message="Only numbers")
     private String home;
 
     @Enumerated(EnumType.STRING)

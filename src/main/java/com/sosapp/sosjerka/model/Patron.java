@@ -1,8 +1,8 @@
 package com.sosapp.sosjerka.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import lombok.NonNull;
 
 @Entity
 @Data
@@ -16,8 +16,12 @@ public class Patron {
     private String firstname;
     private String surname;
     private String nickname;
+
+    @Pattern(regexp = "[0-9]+", message="Only numbers")
     private String mobile;
+    @Pattern(regexp = "[0-9]+", message="Only numbers")
     private String home;
+    @Pattern(regexp = "[0-9]+", message="Only numbers")
     private String office;
     private int listPosition;
 

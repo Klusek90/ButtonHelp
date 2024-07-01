@@ -2,6 +2,7 @@ package com.sosapp.sosjerka.contoller;
 
 import com.sosapp.sosjerka.model.*;
 import com.sosapp.sosjerka.service.UserDetailsService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class UserControl {
     }
 
     @PostMapping("/saveUserDetails")
-    public ResponseEntity<UserDetails> createUser(@RequestBody UserDetails user) {
+    public ResponseEntity<UserDetails> createUser(@Valid @RequestBody UserDetails user) {
         UserDetails savedUser = userDetailsService.saveUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

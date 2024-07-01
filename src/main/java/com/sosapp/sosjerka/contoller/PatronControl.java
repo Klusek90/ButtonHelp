@@ -4,6 +4,7 @@ import com.sosapp.sosjerka.model.Patron;
 import com.sosapp.sosjerka.service.PatronService;
 import com.sosapp.sosjerka.service.UserDetailsService;
 import com.sosapp.sosjerka.model.UserDetails;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class PatronControl {
     }
 
     @PostMapping("/updateUserPatronList/{userId}")
-    public ResponseEntity<List<Patron>> updatePatronList(@RequestBody List<Patron> patrons, @PathVariable Long userId) {
+    public ResponseEntity<List<Patron>> updatePatronList(@Valid @RequestBody List<Patron> patrons, @PathVariable Long userId) {
         List<Patron> patron = patronService.updatePatronList(patrons,userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(patron);
     }
