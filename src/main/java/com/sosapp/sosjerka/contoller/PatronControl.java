@@ -23,15 +23,15 @@ public class PatronControl {
         this.patronService = patronService;
     }
 
-    @PostMapping("/updateUserPatronList/{id}")
-    public ResponseEntity<List<Patron>> updatePatronList(@RequestBody List<Patron> patrons, @PathVariable Long id) {
-        List<Patron> patron = patronService.updatePatronList(patrons,id);
+    @PostMapping("/updateUserPatronList/{userId}")
+    public ResponseEntity<List<Patron>> updatePatronList(@RequestBody List<Patron> patrons, @PathVariable Long userId) {
+        List<Patron> patron = patronService.updatePatronList(patrons,userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(patron);
     }
 
-    @GetMapping("/showPatrons/{id}")
-    public List<Patron> updatePatrons(@PathVariable Long id) {
-        ArrayList<Patron> userPatrons= patronService.allUserPatrons(id);
+    @GetMapping("/showPatrons/{userId}")
+    public List<Patron> updatePatrons(@PathVariable Long userId) {
+        ArrayList<Patron> userPatrons= patronService.allUserPatrons(userId);
         return userPatrons;
     }
 

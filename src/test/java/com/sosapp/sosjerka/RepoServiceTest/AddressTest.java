@@ -38,7 +38,7 @@ public class AddressTest {
         when(addressRepository.save(address)).thenReturn(address);
 
         // When
-        Address savedAddress = addressService.save(address);
+        Address savedAddress = addressService.saveAndUpdate(address,1L);
 
         // Then
         assertThat(savedAddress).isNotNull();

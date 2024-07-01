@@ -1,6 +1,7 @@
 package com.sosapp.sosjerka.contoller;
 
 import com.sosapp.sosjerka.model.Address;
+import com.sosapp.sosjerka.model.Patron;
 import com.sosapp.sosjerka.model.UserDetails;
 import com.sosapp.sosjerka.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,15 @@ public class AddressControl {
         this.addressService = addressService;
     }
 
-    @PostMapping("/updateUserAddress/{id}")
-    public ResponseEntity<Address> updatePatronList(@RequestBody Address address) {
-        Address savedAddress = addressService.save(address);
+    @PostMapping("/updateUserAddress/{userId}")
+    public ResponseEntity<Address> updatePatronList(@RequestBody Address address, @PathVariable Long userId) {
+        Address savedAddress = addressService.saveAndUpdate(address, userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(address);
     }
 
-    @GetMapping("/userAddress/{id}")
-    public ResponseEntity<Address> updatePatrons(@PathVariable Long id) {
-        Optional<Address> userAddress = addressService.findUserAddress(id);
+    @GetMapping("/userAddress/{userId}")
+    public ResponseEntity<Address> updatePatrons(@PathVariable Long userId) {
+        Optional<Address> userAddress = addressService.findUserAddress(userId);
 
         if (userAddress.isPresent()) {
             return ResponseEntity.ok(userAddress.get());
