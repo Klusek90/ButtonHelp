@@ -1,4 +1,4 @@
-package com.sosapp.sosjerka;
+package com.sosapp.sosjerka.RepoServiceTest;
 
 import com.sosapp.sosjerka.model.*;
 import com.sosapp.sosjerka.Repository.UserDetailsRepository;

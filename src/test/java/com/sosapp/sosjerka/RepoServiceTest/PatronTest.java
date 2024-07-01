@@ -1,4 +1,4 @@
-package com.sosapp.sosjerka;
+package com.sosapp.sosjerka.RepoServiceTest;
 
 import com.sosapp.sosjerka.Repository.PatronRepository;
 import com.sosapp.sosjerka.model.Patron;
@@ -14,7 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 @ExtendWith(MockitoExtension.class)
 public class PatronTest {
@@ -50,5 +52,6 @@ public class PatronTest {
         List<Patron> savePatrons = patronService.updatePatronList(patronList,1L);
 
         assertThat(savePatrons).containsExactly(patron, patron2);
+        verify(patronRepository, times(1)).saveAll(patronList);
     }
 }
