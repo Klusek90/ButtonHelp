@@ -19,8 +19,6 @@ public class Patron {
     private String mobile;
     private String home;
     private String office;
-
-    @NonNull
     private int listPosition;
 
     public Patron() {

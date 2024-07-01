@@ -20,7 +20,7 @@ public class PatronService {
     @Autowired
     private UserDetailsRepository userDetailsRepository;
 
-    public Patron updatePatronList(List<Patron> patrons, Long userId){
+    public List<Patron> updatePatronList(List<Patron> patrons, Long userId){
 
         List<Patron> current = new ArrayList<>();
             current = patronRepository.findByUserIdOrderByListPosition(userId);
@@ -43,7 +43,7 @@ public class PatronService {
         }
 
         patronRepository.saveAll(patrons);
-        return patrons.get(0);
+        return patrons;
     }
 
     public ArrayList<Patron> allUserPatrons(Long userId){

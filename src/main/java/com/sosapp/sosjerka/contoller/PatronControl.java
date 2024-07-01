@@ -23,9 +23,9 @@ public class PatronControl {
         this.patronService = patronService;
     }
 
-    @PostMapping("/updateUserDetails/{id}")
-    public ResponseEntity<Patron> updatePatronList(@RequestBody List<Patron> patrons, @PathVariable Long id) {
-        Patron patron = patronService.updatePatronList(patrons,id);
+    @PostMapping("/updateUserPatronList/{id}")
+    public ResponseEntity<List<Patron>> updatePatronList(@RequestBody List<Patron> patrons, @PathVariable Long id) {
+        List<Patron> patron = patronService.updatePatronList(patrons,id);
         return ResponseEntity.status(HttpStatus.CREATED).body(patron);
     }
 
